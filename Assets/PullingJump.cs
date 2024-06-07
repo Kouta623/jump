@@ -4,15 +4,27 @@ using UnityEngine;
 
 public class PullingJump : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] float jumpSpeed = 10f;
+    Rigidbody rb;
+    Vector3 clickPosition;
+
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetMouseButtonDown(0))
+        {
+            clickPosition = Input.mousePosition;    // マウスのいる座標
+        }   // ドラッグ開始を検出
+        else if (Input.GetMouseButtonUp(0))
+        {
+            Vector3 dragVector = clickPosition - Input.mousePosition;
+            // ベクトルの長さを得る            
+            float size = dragVector.magnitude;
+            rb.velocity = dragVector.normalized * jumpSpeed;
+        }   // ドラッグしている間処理する
     }
 }
