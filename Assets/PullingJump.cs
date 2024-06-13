@@ -27,4 +27,20 @@ public class PullingJump : MonoBehaviour
             rb.velocity = dragVector.normalized * jumpSpeed;
         }   // ƒhƒ‰ƒbƒO‚µ‚Ä‚¢‚éŠÔˆ—‚·‚é
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("‚Ô‚Â‚©‚Á‚½");
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        Debug.Log("—£‚ê‚½");
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        
+        //Debug.Log("‚­‚Á‚Â‚¢‚½");
+    }
+
 }
