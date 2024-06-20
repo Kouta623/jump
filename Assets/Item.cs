@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        Destroy(gameObject);
+        Debug.Log(other.gameObject.name + " ‚ªÚG‚µ‚½");
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerExit(Collider other)
     {
-        
+        Debug.Log(other.gameObject.name + " ‚ª—£‚ê‚½");
     }
 }
