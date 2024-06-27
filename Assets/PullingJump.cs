@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PullingJump : MonoBehaviour
@@ -13,6 +15,7 @@ public class PullingJump : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
     }
+
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
