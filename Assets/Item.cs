@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class Item : MonoBehaviour
 {
     Animator _anim;
+    AudioSource _audioSource;
 
     void Start()
     {
         _anim = GetComponent<Animator>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -39,7 +42,9 @@ public class Item : MonoBehaviour
         //Destroy(gameObject);
         Debug.Log(other.gameObject.name + " Ç™ê⁄êGÇµÇΩ");
         // _anim.Play("Get");
-        _anim.SetTrigger("get");
+        _anim.SetBool("get", true);
+        _audioSource.Play();
+        //GetComponent<AudioSource>().Play();
     }
 
     private void OnTriggerExit(Collider other)
